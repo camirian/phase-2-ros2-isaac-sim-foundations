@@ -8,10 +8,10 @@ For definitions of key terms used in this project, please see my central **[AI &
 
 ## ✅ Skills Demonstrated
 
--   **ROS 2 Development:** Creating a ROS 2 [Package](https://github.com/caaren/phase-0-robotics-glossary/blob/main/GLOSSARY.md#package) from scratch using [Colcon](https://github.com/caaren/phase-0-robotics-glossary/blob/main/GLOSSARY.md#colcon) and the [Ament](https://github.com/caaren/phase-0-robotics-glossary/blob/main/GLOSSARY.md#ament) build system.
--   **Multi-Language Proficiency:** Implementing ROS 2 [Nodes](https://github.com/caaren/phase-0-robotics-glossary/blob/main/GLOSSARY.md#node) in both **Python** ([rclpy](https://github.com/caaren/phase-0-robotics-glossary/blob/main/GLOSSARY.md#rclcpp--rclpy)) and **C++** ([rclcpp](https://github.com/caaren/phase-0-robotics-glossary/blob/main/GLOSSARY.md#rclcpp--rclpy)).
--   **ROS 2 Communications:** Understanding the publisher/subscriber pattern using ROS 2 [Topics](https://github.com/caaren/phase-0-robotics-glossary/blob/main/GLOSSARY.md#topic).
--   **Isaac Sim Scripting:** Programmatically controlling the [Isaac Sim](https://github.com/caaren/phase-0-robotics-glossary/blob/main/GLOSSARY.md#isaac-sim) simulator with standalone Python scripts to create and manipulate objects.
+-   **ROS 2 Development:** Creating a multi-language (C++/Python) ROS 2 [Package](https://github.com/caaren/phase-0-robotics-glossary/blob/main/GLOSSARY.md#package) from scratch.
+-   **Isaac Sim Scripting:** Programmatically controlling the [Isaac Sim](https://github.com/caaren/phase-0-robotics-glossary/blob/main/GLOSSARY.md#isaac-sim) simulator to spawn and manage objects.
+-   **Articulated Robot Control:** Loading and commanding a complex robot manipulator using high-level APIs (`Franka` class) and explicit joint commands (`ArticulationAction`).
+-   **Systematic Debugging:** Diagnosing and solving API versioning issues by analyzing log files and iterating on solutions.
 -   **Version Control:** Maintaining a clean, professional [Git](https://github.com/caaren/phase-0-robotics-glossary/blob/main/GLOSSARY.md#git) repository for a public portfolio.
 
 ---
@@ -20,25 +20,21 @@ For definitions of key terms used in this project, please see my central **[AI &
 
 ### 1. `core_robotics_package` (ROS 2)
 
-A ROS 2 [Workspace](https://github.com/caaren/phase-0-robotics-glossary/blob/main/GLOSSARY.md#workspace) (`ros2-ws`) that holds the `core_robotics_package`. This package demonstrates a fundamental publisher/subscriber setup.
-
--   **Publisher (`simple_publisher.py`):** A Python node that publishes a string with a counter to the `/chatter` topic.
--   **Subscriber (`simple_subscriber.cpp`):** A C++ node that subscribes to `/chatter` and prints the messages.
+A ROS 2 [Workspace](https://github.com/caaren/phase-0-robotics-glossary/blob/main/GLOSSARY.md#workspace) (`ros2-ws`) that holds a package demonstrating a fundamental publisher/subscriber setup.
 
 #### How to Run (ROS 2)
 1.  Navigate to `ros2-ws` and run `colcon build`.
-2.  In one terminal, `source install/setup.bash` and run `ros2 run core_robotics_package simple_publisher.py`.
-3.  In a second terminal, `source install/setup.bash` and run `ros2 run core_robotics_package simple_subscriber`.
+2.  Run the publisher and subscriber nodes in separate, sourced terminals.
 
 ### 2. Isaac Sim Scripts
 
-These standalone Python scripts demonstrate programmatic control of the Isaac Sim environment.
+A collection of standalone Python scripts located in the `scripts/` directory.
 
--   **`simple_scene.py`:** Launches the simulator and adds a dynamic **red** cube that falls onto a ground plane.
--   **`add_prims.py`:** A similar script that launches the simulator and adds a dynamic **blue** cube, demonstrating the creation of different objects.
+-   **`simple_scene.py` / `add_prims.py`:** Foundational scripts that launch the simulator and add simple dynamic cubes.
+-   **`franka_wave.py`:** An advanced script that loads a Franka Emika Panda robot and makes it perform a waving motion by sending continuous joint position commands.
 
 #### How to Run (Isaac Sim)
-1.  Navigate to your Isaac Sim installation directory (e.g., `~/.local/share/ov/pkg/isaac-sim-2023.1.1/`).
+1.  Navigate to your Isaac Sim installation directory.
 2.  Execute a script using the bundled Python interpreter: `./python.sh /path/to/phase-2-ros2-isaac-sim-foundations/scripts/SCRIPT_NAME.py`.
 
 ---
