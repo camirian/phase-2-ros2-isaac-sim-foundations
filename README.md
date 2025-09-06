@@ -1,4 +1,4 @@
-# Phase 2: Core Competencies in ROS 2 & Isaac Sim
+# Phase 2: Core Competencies in ROS 2 & Isaac Sim [COMPLETED]
 
 This repository documents the hands-on development portion of Phase 2, focusing on mastering core robotics competencies. It contains foundational projects demonstrating communication with ROS 2 and control within the NVIDIA Isaac Sim environment.
 
@@ -8,7 +8,7 @@ For definitions of key terms used in this project, please see my central **[AI &
 
 ## ✅ Skills Demonstrated
 
--   **ROS 2 Development:** Creating a multi-language (C++/Python) ROS 2 [Package](https://github.com/caaren/phase-0-robotics-glossary/blob/main/GLOSSARY.md#package) from scratch and building it with [Colcon](https://github.com/caaren/phase-0-robotics-glossary/blob/main/GLOSSARY.md#colcon).
+-   **ROS 2 Development:** Creating multi-language **(Python & C++)** ROS 2 packages from scratch and building them with [Colcon](https://github.com/caaren/phase-0-robotics-glossary/blob/main/GLOSSARY.md#colcon).
 -   **Robotics Communication:** Implementing the fundamental publisher/subscriber pattern for inter-node communication.
 -   **Simulation & Control:** Programmatically controlling the [Isaac Sim](https://github.com/caaren/phase-0-robotics-glossary/blob/main/GLOSSARY.md#isaac-sim) simulator to spawn and command complex, articulated robots.
 -   **ROS 2 Integration:** Establishing a robust communication bridge between Isaac Sim and ROS 2 for a full "sim-to-real" control and feedback loop.
@@ -18,44 +18,38 @@ For definitions of key terms used in this project, please see my central **[AI &
 
 ---
 
-## 🚀 Projects
+## 🚀 Completed Projects
 
 This repository contains four distinct foundational projects, completed in logical order.
 
 ### Project 2.1: Standalone ROS 2 Publisher/Subscriber (Python)
 
-A foundational ROS 2 package (`ros2-ws/src/py_pubsub`) that implements the "talker/listener" pattern in Python. This demonstrates the core communication mechanism of ROS 2, forming the basis for all distributed robotics applications.
+A foundational ROS 2 package (`ros2-ws/src/py_pubsub`) that implements the "talker/listener" pattern in Python.
 
 ### Project 2.2: Standalone Isaac Sim Scripting
 
-An advanced Python script (`scripts/franka_wave.py`) that demonstrates direct control over a simulated robot arm entirely within Isaac Sim. The script loads a Franka Emika Panda robot and makes it perform a continuous waving motion by sending a sinusoidal wave of joint position commands.
-
+An advanced Python script (`scripts/franka_wave.py`) that demonstrates direct control over a simulated robot arm entirely within Isaac Sim.
 -   **[▶️ Watch the robot in action on YouTube](https://youtu.be/MKuvEEEHLwQ)**
 
 ### Project 2.3: ROS 2 & Isaac Sim Bridge (OmniGraph)
 
-This project demonstrates the fundamental workflow for connecting Isaac Sim to the ROS 2 ecosystem. It uses the visual scripting capabilities of **OmniGraph** to create a pipeline that reads the real-time joint states of the simulated Franka robot and publishes them to the standard `/joint_states` ROS 2 topic. This is the "Hello World" for sim-to-real feedback.
-
--   **[▶️ Watch the live data stream on YouTube](https://www.youtube.com/watch?v=2jHL1TsLq30)**
-
+This project demonstrates the fundamental workflow for connecting Isaac Sim to the ROS 2 ecosystem using **OmniGraph**.
+-   **[▶️ Watch the live data stream on YouTube](https://youtu.be/YOUR_VIDEO_ID_HERE)**
 ![Final OmniGraph](./media/omnigraph.png)
-*The OmniGraph visually represents the data flow from the simulation tick to the ROS 2 publisher.*
+
+### Project 2.4: Standalone ROS 2 Publisher/Subscriber (C++)
+
+A high-performance ROS 2 package (`ros2-ws/src/cpp_pubsub`) that mirrors the Python version's functionality in C++. This demonstrates proficiency in both of the primary languages used in professional robotics.
 
 ---
 
 ## 🛠️ How to Build and Run
 
-Detailed instructions for each project are contained within their respective folders/documentation. A high-level overview is provided here.
+Detailed instructions for each project are contained within their respective package `README.md` files.
 
-1.  **Isaac Sim Scripts (Project 2.2):** Execute a script using the bundled Python interpreter: `./python.sh /path/to/scripts/franka_wave.py`.
-2.  **ROS 2 Package (Project 2.1):** Build the package with `colcon build` and run the nodes with `ros2 run py_pubsub talker/listener`.
-3.  **Isaac Sim & ROS 2 Bridge (Project 2.3):** Load the `.usd` scene in Isaac Sim, press Play, and use `ros2 topic echo /joint_states` to verify the data stream.
-
----
-
-## ⏭️ What's Next
-
-The final project for Phase 2 is **Project 2.4: Standalone ROS 2 Publisher/Subscriber (C++)**. This will demonstrate proficiency in the second of the two primary languages used in professional robotics.
+1.  Navigate to the ROS 2 workspace: `cd ~/dev/personal/ai-robotics-portfolio/phase-2-ros2-isaac-sim-foundations/ros2-ws`
+2.  Build all packages: `colcon build`
+3.  In separate, sourced terminals, run the nodes (e.g., `ros2 run py_pubsub talker` or `ros2 run cpp_pubsub talker`).
 
 ---
 
